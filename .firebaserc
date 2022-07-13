@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "app-turismo-69e7a": {
+      "hosting": {
+        "app": [
+          "app-turismo-69e7a"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "app-turismo-69e7a"
+  }
+}
