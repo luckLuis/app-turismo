@@ -1,13 +1,12 @@
 export const environment = {
+  production: true,
+  ApiKeyGoogleMaps: 'AIzaSyD6JmoXo13d_mjPw5eQwRDlCTug14Akhbk',
   firebase: {
-    projectId: 'app-turismo-69e7a',
-    appId: '1:574926027739:web:85e163d24c456f52b3c5fe',
-    storageBucket: 'app-turismo-69e7a.appspot.com',
-    locationId: 'us-central',
-    apiKey: 'AIzaSyCJzCgzuKnuis2NTiJN_DDD6wEeqF0c-_s',
-    authDomain: 'app-turismo-69e7a.firebaseapp.com',
-    messagingSenderId: '574926027739',
-    measurementId: 'G-YK9FLVD7NY',
+    apiKey: 'AIzaSyBqiDp30J9pPnWCSH4kSXFRKpcoMkvqd8E',
+    authDomain: 'examen-ib-bb884.firebaseapp.com',
+    projectId: 'examen-ib-bb884',
+    storageBucket: 'examen-ib-bb884.appspot.com',
+    messagingSenderId: '214531438662',
+    appId: '1:214531438662:web:0ea9e61ac8a5c6dea63247',
   },
-  production: true
 };
