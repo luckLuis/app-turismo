@@ -35,9 +35,21 @@ const routes: Routes = [
     
   },
   {
+    path: 'list/places',
+    loadChildren: () => import('./admin/list-places/list-places.module').then( m => m.ListPlacesPageModule)
+  },
+  {
+    path: 'create/place',
+    loadChildren: () => import('./admin/create-place/create-place.module').then( m => m.CreatePlacePageModule)
+  },
+
+  {
     path: '**',
     loadChildren: () => import('./page-not-found/page-not-found.module').then( m => m.PageNotFoundPageModule)
   },
+
+
+  
 
 
 ];

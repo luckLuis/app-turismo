@@ -42,12 +42,12 @@ export class RegisterPage implements OnInit
 
       this.afauth.createUserWithEmailAndPassword(this.email, this.password)
       .then((data) => {
-        this.afs.collection('user').doc(data.user.uid).set({
+        this.afs.collection('Users').doc(data.user.uid).set({
           'userId': data.user.uid,
           'userName': this.name,
           'userEmail': this.email,
           'userPhone': this.phone,
-          'userRol': "turista",
+          'userRol': "admin",
           'createAt': Date.now()
         })
         .then(() => {

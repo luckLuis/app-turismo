@@ -36,7 +36,7 @@ export class ProfileEditPage implements OnInit {
       //this.rol = user.userRol;
       //this.email = user.userEmail;
       this.phone = user.userPhone;
-      console.log('user id ->',this.userId);
+      console.log('user id ->',this.name);
     })
   }
 
@@ -50,7 +50,7 @@ export class ProfileEditPage implements OnInit {
 
     loading.present();
 
-    this.afs.collection('user').doc(this.userId).set({
+    this.afs.collection('Users').doc(this.userId).set({
       'userName': this.name,
       //'userEmail': this.email,
       //'userRol': this.rol,

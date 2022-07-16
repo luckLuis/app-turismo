@@ -1,0 +1,73 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Agregar lugar</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div>
+    
+    <h3 class="header-product">Datos del lugar</h3>
+    <ion-item>
+      <ion-label position="floating"> Nombre: </ion-label>
+      <ion-input [(ngModel)]="newPlace.name" type="text" inputmode="text">
+      </ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating"> Precio: </ion-label>
+      <ion-input
+        [(ngModel)]="newPlace.price"
+        type="number"
+        inputmode="numeric"
+      >
+      </ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating"> Descripción: </ion-label>
+      <ion-input
+        [(ngModel)]="newPlace.description"
+        type="text"
+        inputmode="text"
+      >
+      </ion-input>
+    </ion-item>
+    <ion-item (click)="addDirection()">
+      <ion-label class="normal"> Ubicación </ion-label>
+      <ion-buttons slot="end">
+        <ion-button>
+          <ion-icon slot="icon-only" color="danger" name="location"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+    </ion-item>
+    <ion-item>
+      <ion-label> Foto </ion-label>
+      <ion-buttons slot="end">
+        <ion-button>
+          <label for="file-upload">
+            <ion-icon slot="icon-only" name="images-outline"></ion-icon>
+          </label>
+          <input
+            (change)="newImageUpload($event)"
+            id="file-upload"
+            style="display: none"
+            type="file"
+            accept="image/*"
+          />
+        </ion-button>
+      </ion-buttons>
+    </ion-item>
+    <ion-item>
+      <img [src]="newPlace.image" />
+    </ion-item>
+    <div style="text-align: end; margin: 10px">
+      <ion-button expand="block" color="primary" (click)="saveItem()">
+        Guardar
+      </ion-button>
+    </div>
+  </div>
+
+</ion-content>
+

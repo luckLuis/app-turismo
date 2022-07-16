@@ -28,7 +28,7 @@ import { AuthService } from './services/auth.service';
 
 //AUTHGUARD
 import { AuthGuard } from '@angular/fire/auth-guard';
-import { StatusBar } from '@capacitor/status-bar';
+
 
 @NgModule({
   declarations: [AppComponent, MenuComponent],

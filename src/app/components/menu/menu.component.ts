@@ -78,7 +78,7 @@ export class MenuComponent implements OnInit {
 
   getDatosUser(userId: string)
   {
-    const path = 'user';
+    const path = 'Users';
     const id = userId;
     this.auth.getDoc<User>(path, id).subscribe(user =>{
       //console.log('datos ->', user);
