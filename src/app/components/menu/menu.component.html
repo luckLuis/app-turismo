@@ -7,7 +7,7 @@
     <ion-item
       *ngIf="isLogin && userRol === 'admin'"
       detail="true"
-      [routerLink]="['/categories', userRol]"
+      [routerLink]="['/categories/admin']"
     >
       <ion-label> Admin </ion-label>
       <ion-icon slot="start" name="person-outline"></ion-icon>
@@ -28,7 +28,7 @@
     <ion-item
       *ngIf="isLogin && userRol === 'turista'"
       detail="true"
-      [routerLink]="['/categories', userRol]"
+      [routerLink]="['/categories/turista']"
     >
       <ion-label> Turista </ion-label>
       <ion-icon slot="start" name="person-outline"></ion-icon>
@@ -37,11 +37,10 @@
 
   <ion-menu-toggle>
     <ion-item
-      *ngIf="isLogin && userRol === 'encargado'"
+      *ngIf="isLogin && userRol !== 'admin'"
       detail="true"
-      [routerLink]="['/categories', userRol]"
+      [routerLink]="['/categories/encargado']"
     >
-      <!-- <ion-item  *ngIf="isLogin && userRol==='encargado'" detail="true" [routerLink]="['/edit/place']" > -->
       <ion-label> Encargado </ion-label>
       <ion-icon slot="start" name="person-outline"></ion-icon>
     </ion-item>

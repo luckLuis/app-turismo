@@ -47,7 +47,7 @@ export class RegisterPage implements OnInit
           'userName': this.name,
           'userEmail': this.email,
           'userPhone': this.phone,
-          'userRol': "encargado",
+          'userRol': "turista",
           'createAt': Date.now()
         })
         .then(() => {
