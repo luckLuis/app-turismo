@@ -1,6 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
-import { AlertController, LoadingController, MenuController, ModalController, ToastController } from '@ionic/angular';
+import { ActivatedRoute, Router } from '@angular/router';
+import {
+  AlertController,
+  LoadingController,
+  MenuController,
+  ModalController,
+  ToastController,
+} from '@ionic/angular';
 import { Place } from 'src/app/model/places';
 import { FirestorageService } from 'src/app/services/firestorage.service';
 import { FirestoreService } from 'src/app/services/firestore.service';
@@ -11,30 +17,17 @@ import { FirestoreService } from 'src/app/services/firestore.service';
   styleUrls: ['./list-places.page.scss'],
 })
 export class ListPlacesPage implements OnInit {
-
-
   places: Place[] = [];
 
   newPlace: Place;
 
   enableNewRestaurant = false;
 
-  private path = 'Places/';
+  public path: string;
   newImage = '';
   newFile = '';
 
   loading: any;
-
- /* cliente: Client = {
-    uid: '',
-    name: '',
-    email: '',
-    phoneNumber: '',
-    image: '',
-    description: '',
-    ubication: null,
-  };*/
-
   constructor(
     public menucontroler: MenuController,
     public firestoreService: FirestoreService,
@@ -43,11 +36,14 @@ export class ListPlacesPage implements OnInit {
     public alertController: AlertController,
     public firestorageService: FirestorageService,
     public modalController: ModalController,
-    public router: Router
+    public router: Router,
+    private activatedRoute: ActivatedRoute
   ) {}
 
   ngOnInit() {
+    this.path = this.activatedRoute.snapshot.paramMap.get('route');
     this.getItems();
+    console.log('path', this.path);
   }
 
   openMenu() {
@@ -55,7 +51,7 @@ export class ListPlacesPage implements OnInit {
   }
   async saveItem() {
     this.presentLoading();
-    const path = 'Places';
+    const path = this.path;
     const name = this.newPlace.name;
     const res = await this.firestorageService.uploadImage(
       this.newFile,
@@ -75,11 +71,9 @@ export class ListPlacesPage implements OnInit {
   }
 
   getItems() {
-    this.firestoreService
-      .getCollection<Place>(this.path)
-      .subscribe((res) => {
-        this.places = res;
-      });
+    this.firestoreService.getCollection<Place>(this.path).subscribe((res) => {
+      this.places = res;
+    });
   }
   async deleteItem(place: Place) {
     const alert = await this.alertController.create({
@@ -119,7 +113,7 @@ export class ListPlacesPage implements OnInit {
 
   newItem() {
     this.enableNewRestaurant = true;
-    this.router.navigate(['/create/place']);
+    this.router.navigate(['/create/place',this.path]);
   }
 
   async presentLoading() {
@@ -150,28 +144,4 @@ export class ListPlacesPage implements OnInit {
       reader.readAsDataURL(event.target.files[0]);
     }
   }
-/*
-  async addDirection() {
-    const location = this.newPlace.ubication;
-    let positionInput = {
-      lat: 0,
-      lng: 0,
-    };
-    if (location !== null) {
-      positionInput = location;
-    }
-
-    const modalAdd = await this.modalController.create({
-      component: GooglemapsComponent,
-      componentProps: { position: positionInput },
-    });
-    await modalAdd.present();
-
-    const { data } = await modalAdd.onWillDismiss();
-    if (data) {
-      console.log('data -> ', data);
-      this.newPlace.ubication = data.pos;
-      console.log('this.newRestaurant -> ', this.newPlace);
-    }
-  }*/
 }

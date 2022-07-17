@@ -38,25 +38,30 @@ const routes: Routes = [
       ),
   },
   {
-    path: 'list/places',
+    path: 'list/places/:route',
     loadChildren: () =>
       import('./admin/list-places/list-places.module').then(
         (m) => m.ListPlacesPageModule
       ),
   },
   {
-    path: 'create/place',
+    path: 'create/place/:route',
     loadChildren: () =>
       import('./admin/create-place/create-place.module').then(
         (m) => m.CreatePlacePageModule
       ),
   },
   {
-    path: 'edit/place',
+    path: 'edit/place/:route',
     loadChildren: () =>
       import('./encargado/edit-place/edit-place.module').then(
         (m) => m.EditPlacePageModule
       ),
+  },
+  {
+    path: 'categories/:userRol',
+    loadChildren: () =>
+      import('./categories/categories.module').then((m) => m.CategoriesPageModule),
   },
   {
     path: '**',
