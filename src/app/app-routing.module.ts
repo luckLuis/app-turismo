@@ -77,7 +77,7 @@ const routes: Routes = [
       import('./favoritos/favoritos.module').then((m) => m.FavoritosPageModule),
   },
   {
-    path: 'visitante',
+    path: 'visitante/:route',
     loadChildren: () =>
       import('./visitante/visitante.module').then((m) => m.VisitantePageModule),
   },

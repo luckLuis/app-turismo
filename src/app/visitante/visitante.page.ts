@@ -29,7 +29,6 @@ export interface Favorite {
 })
 export class VisitantePage implements OnInit {
   like = false;
-
   data: Favorite = {
     position: {
       lat: 1264,
@@ -39,12 +38,42 @@ export class VisitantePage implements OnInit {
     id: '',
   };
 
+  user: any = '';
+
+  places: Place[] = [];
+
+  newPlace: Place;
+
+  enableNewPlace = false;
+
+  newImage = '';
+  newFile = '';
+
+  loading: any;
+
+  public route: string;
   constructor(
-    private authService: AuthService,
-    private firestoreService: FirestoreService
+    public menucontroler: MenuController,
+    public firestoreService: FirestoreService,
+    public loadingController: LoadingController,
+    public toastController: ToastController,
+    public alertController: AlertController,
+    public firestorageService: FirestorageService,
+    public modalController: ModalController,
+    private activatedRoute: ActivatedRoute,
+    private authService: AuthService
   ) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.route = this.activatedRoute.snapshot.paramMap.get('route');
+    this.getItems();
+  }
+
+  getItems() {
+    this.firestoreService.getCollection<Place>(this.route).subscribe((res) => {
+      this.places = res;
+    });
+  }
 
   async addFavorite() {
     this.like = !this.like;
@@ -59,56 +88,21 @@ export class VisitantePage implements OnInit {
     }
   }
 
-  /*
-  user: any = '';
-
-  places: Place[] = [];
-
-  newPlace: Place;
-
-  enableNewPlace = false;
-
-  newImage = '';
-  newFile = '';
-
-  loading: any;
-  public path: string;
-
-  constructor(
-    public menucontroler: MenuController,
-    public firestoreService: FirestoreService,
-    public loadingController: LoadingController,
-    public toastController: ToastController,
-    public alertController: AlertController,
-    public firestorageService: FirestorageService,
-    public modalController: ModalController,
-    private activatedRoute: ActivatedRoute,
-    private auth: AuthService
-  ) {}
-
-  ngOnInit() {
-    this.path = this.activatedRoute.snapshot.paramMap.get('route');
-    this.getItems();
-    this.auth.user$.subscribe((user) => {
-      this.user = user;
-    });
-    console.log('path', this.path);
-  }
   openMenu() {
     this.menucontroler.toggle('first');
   }
   async saveItem() {
     this.presentLoading();
-    const path = this.path;
+    const route = this.route;
     const name = this.newPlace.name;
     const res = await this.firestorageService.uploadImage(
       this.newFile,
-      path,
+      route,
       name
     );
     this.newPlace.image = res;
     this.firestoreService
-      .createDoc(this.newPlace, this.path, this.newPlace.id)
+      .createDoc(this.newPlace, this.route, this.newPlace.id)
       .then((res) => {
         this.loading.dismiss();
         this.presentToast('Guardado con éxito');
@@ -117,12 +111,6 @@ export class VisitantePage implements OnInit {
       .catch((err) => {
         this.presentToast('No se pudo guardar :(');
       });
-  }
-
-  getItems() {
-    this.firestoreService.getCollection<Place>(this.path).subscribe((res) => {
-      this.places = res;
-    });
   }
 
   newItem() {
@@ -192,5 +180,4 @@ export class VisitantePage implements OnInit {
       console.log('this.newPlace -> ', this.newPlace);
     }
   }
-  */
 }
