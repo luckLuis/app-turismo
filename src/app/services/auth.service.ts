@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { User } from '../model/user'; 
+import { User } from '../model/user';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 import * as firebase from 'firebase/compat/app';
@@ -24,15 +24,15 @@ export class AuthService {
     private router: Router,
     private LoadingCtrl: LoadingController,
     private toastr: ToastController,
-  ) 
+  )
   {
     this.user$ = this.afauth.authState
     .pipe(
       switchMap (user => {
 
         if (user)
-        {       
-          return this.afs.doc<User>(`user/${user.uid}`).valueChanges();  
+        {
+          return this.afs.doc<User>(`user/${user.uid}`).valueChanges();
         } else {
           return of(null);
         }
@@ -46,7 +46,7 @@ export class AuthService {
       message: 'Autenticando...',
       spinner: 'crescent',
       showBackdrop: true,
-      
+
     });
 
     loading.present();
@@ -54,10 +54,10 @@ export class AuthService {
     this.afauth.setPersistence(firebase.default.auth.Auth.Persistence.LOCAL).then(()=> {
       this.afauth.signInWithEmailAndPassword(email, password).then((data) =>
       {
-        
+
           loading.dismiss();
           this.router.navigate(['/profile']);
-        
+
       })
       .catch (error => {
         this.toast(error.message, 'danger');
@@ -100,6 +100,15 @@ export class AuthService {
     toast.present();
   } //end of toast
 
+  async getUid() {
+    const user = await this.afauth.currentUser;
+    if (user === null) {
+      return null;
+    } else {
+      return user.uid;
+    }
+  }
+
   stateUser(){
     return this.afauth.authState;
   }
@@ -108,4 +117,4 @@ export class AuthService {
     const collection = this.afs.collection<tipo>(path);
     return collection.doc(id).valueChanges();
   }
-} 
+}

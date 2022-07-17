@@ -7,7 +7,7 @@ const routes: Routes = [
   {
     path:'home',
     loadChildren: () => import('./home/home.module').then(m => m.HomePageModule),
-    
+
   },
   {
     path: '',
@@ -21,23 +21,28 @@ const routes: Routes = [
   {
     path: 'login',
     loadChildren: () => import('./login/login.module').then( m => m.LoginPageModule),
-    
+
   },
 
   {
     path: 'profile',
     loadChildren: () => import('./profile/profile.module').then( m => m.ProfilePageModule),
-    
+
+  },
+  {
+    path: 'favoritos',
+    loadChildren: () => import('./favoritos/favoritos.module').then( m => m.FavoritosPageModule)
   },
   {
     path: 'profile/edit',
     loadChildren: () => import('./profile-edit/profile-edit.module').then( m => m.ProfileEditPageModule),
-    
+
   },
   {
     path: '**',
     loadChildren: () => import('./page-not-found/page-not-found.module').then( m => m.PageNotFoundPageModule)
   },
+
 
 
 ];
