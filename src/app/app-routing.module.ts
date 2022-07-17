@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 import { AuthGuard } from '@angular/fire/auth-guard';
 
-
 const routes: Routes = [
   {
     path: 'home',
@@ -61,7 +60,16 @@ const routes: Routes = [
   {
     path: 'categories/:userRol',
     loadChildren: () =>
-      import('./categories/categories.module').then((m) => m.CategoriesPageModule),
+      import('./categories/categories.module').then(
+        (m) => m.CategoriesPageModule
+      ),
+  },
+  {
+    path: 'list/users',
+    loadChildren: () =>
+      import('./admin/list-users/list-users.module').then(
+        (m) => m.ListUsersPageModule
+      ),
   },
   {
     path: '**',
@@ -74,8 +82,8 @@ const routes: Routes = [
 
 @NgModule({
   imports: [
-    RouterModule.forRoot(routes, { preloadingStrategy: PreloadAllModules })
+    RouterModule.forRoot(routes, { preloadingStrategy: PreloadAllModules }),
   ],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

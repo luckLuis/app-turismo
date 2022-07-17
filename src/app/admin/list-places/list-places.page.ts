@@ -8,6 +8,7 @@ import {
   ToastController,
 } from '@ionic/angular';
 import { Place } from 'src/app/model/places';
+import { DatabaseService } from 'src/app/services/database.service';
 import { FirestorageService } from 'src/app/services/firestorage.service';
 import { FirestoreService } from 'src/app/services/firestore.service';
 
@@ -17,11 +18,21 @@ import { FirestoreService } from 'src/app/services/firestore.service';
   styleUrls: ['./list-places.page.scss'],
 })
 export class ListPlacesPage implements OnInit {
+  isModalOpen = false;
+
+  isthePlace = '';
+
+  setOpen(isOpen: boolean, id: string) {
+    this.isModalOpen = isOpen;
+    this.isthePlace = id;
+  }
+
   places: Place[] = [];
 
   newPlace: Place;
 
   enableNewRestaurant = false;
+  listUsers = [];
 
   public path: string;
   newImage = '';
@@ -37,13 +48,40 @@ export class ListPlacesPage implements OnInit {
     public firestorageService: FirestorageService,
     public modalController: ModalController,
     public router: Router,
-    private activatedRoute: ActivatedRoute
+    private activatedRoute: ActivatedRoute,
+    private database: DatabaseService
   ) {}
 
   ngOnInit() {
     this.path = this.activatedRoute.snapshot.paramMap.get('route');
     this.getItems();
+    this.getManage();
     console.log('path', this.path);
+  }
+  getManage() {
+    this.database.getAll('Users').then((firebaseResponse) => {
+      firebaseResponse.subscribe((listOfUsers) => {
+        listOfUsers.forEach((user) => {
+          this.listUsers = listOfUsers.map((user) => {
+            let usuario = user.payload.doc.data();
+            usuario['id'] = user.payload.doc.id;
+            return usuario;
+          });
+        });
+      });
+    });
+  }
+
+  updateManager(name: string): void {
+    const data = {
+      manager: name,
+    };
+
+    this.firestoreService
+      .updateDoc(data, this.path, this.isthePlace)
+      .catch((err) => console.log(err));
+
+    this.isModalOpen = false;
   }
 
   openMenu() {
@@ -113,7 +151,7 @@ export class ListPlacesPage implements OnInit {
 
   newItem() {
     this.enableNewRestaurant = true;
-    this.router.navigate(['/create/place',this.path]);
+    this.router.navigate(['/create/place', this.path]);
   }
 
   async presentLoading() {

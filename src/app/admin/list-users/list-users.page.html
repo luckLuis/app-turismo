@@ -1,0 +1,45 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Lista de usuarios</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ul *ngFor="let user of listUsers">
+    <div *ngIf="user.userRol != 'admin'">
+      <ion-card>
+        <ion-list>
+          <ion-label position="stacked"> Nombre: {{user.userName}} </ion-label>
+        </ion-list>
+
+        <ion-list>
+          <ion-label position="stacked"> Email: {{user.userEmail}} </ion-label>
+        </ion-list>
+
+        <ion-list>
+          <ion-label position="stacked"> Rol: {{user.userRol}} </ion-label>
+        </ion-list>
+
+        <ion-list>
+          <ion-button (click)="eliminar(user.id)">Eliminar</ion-button>
+          <ion-button>
+            <ion-select
+              (ionChange)="recoverAlertValue($event)"
+              interface="action-sheet"
+              placeholder="Rol: {{user.userRol}}"
+            >
+              <ion-select-option *ngFor="let rol of listRols">
+                {{rol}}
+              </ion-select-option>
+            </ion-select>
+          </ion-button>
+
+          <ion-button (click)="editar(user.id)"> Guardar </ion-button>
+        </ion-list>
+      </ion-card>
+    </div>
+  </ul>
+</ion-content>

@@ -88,6 +88,7 @@ export class EditPlacePage implements OnInit {
       ubication: null,
       id: this.firestoreService.getId(),
       fecha: new Date(),
+      manager: null,
     };
   }
 

@@ -3,6 +3,9 @@
     <ion-buttons slot="start">
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
+    <ion-buttons slot="end">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
     <ion-title>{{path}}</ion-title>
   </ion-toolbar>
 </ion-header>
@@ -19,11 +22,55 @@
           <ion-icon slot="icon-only" color="danger" name="trash-bin"></ion-icon>
         </ion-button>
       </ion-buttons>
+
+      <div *ngIf="!place.manager">
+        <ion-button expand="block" (click)="setOpen(true, place.id)"
+          >Agregar un encargado</ion-button
+        >
+      </div>
+      <div *ngIf="place.manager">
+        <ion-button expand="block" (click)="setOpen(true, place.id)"
+          >Editar encargado</ion-button
+        >
+      </div>
     </ion-item>
-    <div style="text-align: end; margin: 10px">
-      <ion-button expand="block" color="primary" (click)="newItem()">
-        Nuevo
-      </ion-button>
-    </div>
   </div>
+
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button (click)="newItem()" color="secondary">
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+
+  <ion-modal [isOpen]="isModalOpen">
+    <ng-template>
+      <ion-header>
+        <ion-toolbar>
+          <ion-title>Agregar encargado del Sitio</ion-title>
+          <ion-buttons slot="end">
+            <ion-button (click)="setOpen(false, '')">Cerrar</ion-button>
+          </ion-buttons>
+        </ion-toolbar>
+      </ion-header>
+      <ion-content class="ion-padding">
+        <p>
+          Tienes la opcion de elegir a un usuario encargado para que pueda
+          administrar el sitio.
+        </p>
+
+        <ion-list *ngFor="let user of listUsers">
+          <ion-item
+            *ngIf="user.userRol !== 'admin' && user.userRol !== 'turista'"
+          >
+            <ion-label>
+              <h2>{{ user.userName }}</h2>
+            </ion-label>
+            <ion-button (click)="updateManager(user.userName)"
+              ><ion-icon name="arrow-forward-outline"></ion-icon
+            ></ion-button>
+          </ion-item>
+        </ion-list>
+      </ion-content>
+    </ng-template>
+  </ion-modal>
 </ion-content>
