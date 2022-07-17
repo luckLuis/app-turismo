@@ -1,0 +1,64 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Mis favoritos</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <h2>Lista de mis hoteles favoritos</h2>
+
+  <div *ngFor="let favorite of favorites">
+    <ion-list *ngFor="let hotel of hotels">
+      <ion-item *ngIf="hotel.id === favorite.idPlace">
+        <ion-label>
+          <h2>{{ hotel.name }}</h2>
+        </ion-label>
+      </ion-item>
+    </ion-list>
+  </div>
+
+  <h2>Lista de mis Restaurantes favoritos</h2>
+  
+  <div *ngFor="let favorite of favorites">
+    <ion-list *ngFor="let restaurant of restaurants">
+      <ion-item *ngIf="restaurant.id === favorite.idPlace">
+        <ion-label>
+          <h2>{{ restaurant.name }}</h2>
+        </ion-label>
+      </ion-item>
+    </ion-list>
+  </div>
+
+  <h2>Lista de mis Bibliotecas favoritos</h2>
+  
+  <div *ngFor="let favorite of favorites">
+    <ion-list *ngFor="let library of libraries">
+      <ion-item *ngIf="library.id === favorite.idPlace">
+        <ion-label>
+          <h2>{{ library.name }}</h2>
+        </ion-label>
+      </ion-item>
+    </ion-list>
+  </div>
+
+  <h2>Lista de mis Museos favoritos</h2>
+  
+  <div *ngFor="let favorite of favorites">
+    <ion-list *ngFor="let museum of museums">
+      <ion-item *ngIf="museum.id === favorite.idPlace">
+        <ion-label>
+          <h2>{{ museum.name }}</h2>
+        </ion-label>
+      </ion-item>
+    </ion-list>
+  </div>
+
+
+  
+  
+
+</ion-content>

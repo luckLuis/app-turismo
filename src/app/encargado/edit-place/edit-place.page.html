@@ -1,0 +1,103 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title class="ion-text"> {{path}}</ion-title>
+  
+    <ion-buttons slot="end">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar> </ion-header
+>
+
+<ion-content>
+  <div *ngIf="enableNewPlace">
+    <h3 class="header-product">Información</h3>
+    <ion-item>
+      <ion-label position="floating"> Nombre: </ion-label>
+      <ion-input [(ngModel)]="newPlace.name" type="text" inputmode="text">
+      </ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating"> Pagina Web: </ion-label>
+      <ion-input [(ngModel)]="newPlace.paginaWeb" type="text" inputmode="text">
+      </ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating"> Direccion: </ion-label>
+      <ion-input [(ngModel)]="newPlace.direccion" type="text" inputmode="text">
+      </ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating"> Telefono: </ion-label>
+      <ion-input [(ngModel)]="newPlace.telefono" type="text" inputmode="text">
+      </ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating"> Servicios: </ion-label>
+      <ion-input [(ngModel)]="newPlace.servicios" type="text" inputmode="text">
+      </ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating"> Mapa: </ion-label>
+      <ion-input [(ngModel)]="newPlace.mapa" type="text" inputmode="text">
+      </ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating"> Descripción: </ion-label>
+      <ion-input
+        [(ngModel)]="newPlace.description"
+        type="text"
+        inputmode="text"
+      >
+      </ion-input>
+    </ion-item>
+    <ion-item (click)="addDirection()">
+      <ion-label class="normal"> Ubicación </ion-label>
+      <ion-buttons slot="end">
+        <ion-button>
+          <ion-icon slot="icon-only" color="danger" name="location"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+    </ion-item>
+    <ion-item>
+      <ion-label> Foto </ion-label>
+      <ion-buttons slot="end">
+        <ion-button>
+          <label for="file-upload">
+            <ion-icon slot="icon-only" name="images-outline"></ion-icon>
+          </label>
+          <input
+            (change)="newImageUpload($event)"
+            id="file-upload"
+            style="display: none"
+            type="file"
+            accept="image/*"
+          />
+        </ion-button>
+      </ion-buttons>
+    </ion-item>
+    <ion-item>
+      <img [src]="newPlace.image" />
+    </ion-item>
+    <div style="text-align: end; margin: 10px">
+      <ion-button expand="block" color="primary" (click)="saveItem()"
+        >Guardar</ion-button
+      >
+    </div>
+  </div>
+
+  <div *ngIf="!enableNewPlace ">
+    <ion-list *ngFor="let place of places">
+      <ion-item *ngIf="place.manager === user?.userName">
+        <ion-thumbnail slot="start">
+          <ion-img [src]="place.image"></ion-img>
+        </ion-thumbnail>
+        <ion-label class="normal"> {{ place.name }}</ion-label>
+        <ion-buttons id="open-modal" slot="end">
+          <ion-button (click)="newItem(); newPlace = place">
+            <ion-icon slot="icon-only" name="create-sharp"></ion-icon>
+          </ion-button>
+        </ion-buttons>
+      </ion-item>
+    </ion-list>
+  </div>
+</ion-content>

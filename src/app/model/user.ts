@@ -1,0 +1,8 @@
+export interface User {
+    userId: string;
+    userName: string;
+    userEmail: string;
+    userPhone: string;
+    userRol: 'admin' | 'turista' | 'encargado';
+    createdAt: number;
+}
