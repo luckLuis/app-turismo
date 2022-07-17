@@ -2,12 +2,12 @@ export const environment = {
   production: true,
   ApiKeyGoogleMaps: 'AIzaSyD6JmoXo13d_mjPw5eQwRDlCTug14Akhbk',
   firebase: {
-    apiKey: "AIzaSyBK6TyaLnNO5dN3J1MdkyvvB6ejSW_OLms",
-    authDomain: "tourproject-8b80e.firebaseapp.com",
-    projectId: "tourproject-8b80e",
-    storageBucket: "tourproject-8b80e.appspot.com",
-    messagingSenderId: "97235871888",
-    appId: "1:97235871888:web:3be6eb128f02f7bb021015",
-    measurementId: "G-F4TK4PXMR5"
+    apiKey: 'AIzaSyCJzCgzuKnuis2NTiJN_DDD6wEeqF0c-_s',
+    authDomain: 'app-turismo-69e7a.firebaseapp.com',
+    projectId: 'app-turismo-69e7a',
+    storageBucket: 'app-turismo-69e7a.appspot.com',
+    messagingSenderId: '574926027739',
+    appId: '1:574926027739:web:85e163d24c456f52b3c5fe',
+    measurementId: 'G-YK9FLVD7NY',
   },
 };

@@ -26,6 +26,18 @@
           ><ion-icon name="library-outline"></ion-icon> Bibliotecas</ion-label
         >
       </ion-item>
+      <ion-item [routerLink]="['/edit/place/Iglesias']" detail>
+        <ion-label
+          ><ion-icon name="library-outline"></ion-icon
+          ><ion-icon name="people-circle-outline"></ion-icon>
+          Iglesias</ion-label
+        >
+      </ion-item>
+      <ion-item [routerLink]="['/edit/place/Parques']" detail>
+        <ion-label
+          ><ion-icon name="leaf-outline "></ion-icon> Parques</ion-label
+        >
+      </ion-item>
     </ion-list>
   </div>
 
@@ -48,21 +60,48 @@
           ><ion-icon name="library-outline"></ion-icon> Bibliotecas</ion-label
         >
       </ion-item>
+      <ion-item [routerLink]="['/list/places/Iglesias']" detail>
+        <ion-label
+          ><ion-icon name="people-circle-outline"></ion-icon>
+          Iglesias</ion-label
+        >
+      </ion-item>
+      <ion-item [routerLink]="['/list/places/Parques']" detail>
+        <ion-label
+          ><ion-icon name="leaf-outline"></ion-icon
+          ><ion-icon name="leaf-outline"></ion-icon> Parques</ion-label
+        >
+      </ion-item>
     </ion-list>
   </div>
+
   <div *ngIf="userRol==='turista'">
     <ion-list>
       <ion-item [routerLink]="['/visitante/Hoteles']" detail>
-        <ion-label>Hoteles</ion-label>
+        <ion-label><ion-icon name="bed-outline"></ion-icon> Hoteles</ion-label>
       </ion-item>
       <ion-item [routerLink]="['/visitante/Restaurantes']" detail>
-        <ion-label>Restaurantes</ion-label>
+        <ion-label
+          ><ion-icon name="restaurant-outline"></ion-icon>
+          Restaurantes</ion-label
+        >
       </ion-item>
       <ion-item [routerLink]="['/visitante/Museos']" detail>
-        <ion-label>Museos</ion-label>
+        <ion-label><ion-icon name="image-outline"></ion-icon> Museos</ion-label>
       </ion-item>
       <ion-item [routerLink]="['/visitante/Bibliotecas']" detail>
-        <ion-label>Bibliotecas</ion-label>
+        <ion-label
+          ><ion-icon name="library-outline"></ion-icon> Bibliotecas</ion-label
+        >
+      </ion-item>
+      <ion-item [routerLink]="['/visitante/Iglesias']" detail>
+        <ion-label
+          ><ion-icon name="people-circle-outline"></ion-icon>
+          Iglesias</ion-label
+        >
+      </ion-item>
+      <ion-item [routerLink]="['/visitante/Parques']" detail>
+        <ion-label><ion-icon name="leaf-outline"></ion-icon> Parques</ion-label>
       </ion-item>
     </ion-list>
   </div>
