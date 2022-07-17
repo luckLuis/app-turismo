@@ -4,11 +4,7 @@
 
 export const environment = {
   production: false,
-  ApiKeyGoogleMaps: 'AIzaSyD6JmoXo13d_mjPw5eQwRDlCTug14Akhbk',
-
-  firebase: {
-    
-  },
+  
 };
 /*
 /*
