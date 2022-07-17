@@ -182,4 +182,7 @@ export class ListPlacesPage implements OnInit {
       reader.readAsDataURL(event.target.files[0]);
     }
   }
+
+
+
 }

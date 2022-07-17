@@ -20,6 +20,12 @@
 
         <ion-card-content> {{ place.description }}</ion-card-content>
 
+        <button>
+          <a href="{{ place.mapa }}" target="_blank">Abrir Mapa</a>
+        </button>  
+        
+
+
         <div *ngIf="!place.manager">
           <ion-button expand="block" (click)="setOpen(true, place.id)"
             >Agregar un encargado</ion-button
