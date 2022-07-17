@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
 import {
   AlertController,
   LoadingController,
@@ -7,38 +6,30 @@ import {
   ModalController,
   ToastController,
 } from '@ionic/angular';
-import { Place } from 'src/app/model/places';
-import { DatabaseService } from 'src/app/services/database.service';
+import { GooglemapsComponent } from 'src/app/googlemaps/googlemaps.component';
+import { Place } from '../../model/places';
 import { FirestorageService } from 'src/app/services/firestorage.service';
 import { FirestoreService } from 'src/app/services/firestore.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
-  selector: 'app-list-places',
-  templateUrl: './list-places.page.html',
-  styleUrls: ['./list-places.page.scss'],
+  selector: 'app-edit-place',
+  templateUrl: './edit-place.page.html',
+  styleUrls: ['./edit-place.page.scss'],
 })
-export class ListPlacesPage implements OnInit {
-  isModalOpen = false;
-
-  isthePlace = '';
-
-  setOpen(isOpen: boolean, id: string) {
-    this.isModalOpen = isOpen;
-    this.isthePlace = id;
-  }
-
+export class EditPlacePage implements OnInit {
   places: Place[] = [];
 
   newPlace: Place;
 
-  enableNewRestaurant = false;
-  listUsers = [];
+  enableNewPlace = false;
 
-  public path: string;
   newImage = '';
   newFile = '';
 
   loading: any;
+  public path: string;
+
   constructor(
     public menucontroler: MenuController,
     public firestoreService: FirestoreService,
@@ -47,43 +38,14 @@ export class ListPlacesPage implements OnInit {
     public alertController: AlertController,
     public firestorageService: FirestorageService,
     public modalController: ModalController,
-    public router: Router,
-    private activatedRoute: ActivatedRoute,
-    private database: DatabaseService
+    private activatedRoute: ActivatedRoute
   ) {}
 
   ngOnInit() {
     this.path = this.activatedRoute.snapshot.paramMap.get('route');
     this.getItems();
-    this.getManage();
     console.log('path', this.path);
   }
-  getManage() {
-    this.database.getAll('Users').then((firebaseResponse) => {
-      firebaseResponse.subscribe((listOfUsers) => {
-        listOfUsers.forEach((user) => {
-          this.listUsers = listOfUsers.map((user) => {
-            let usuario = user.payload.doc.data();
-            usuario['id'] = user.payload.doc.id;
-            return usuario;
-          });
-        });
-      });
-    });
-  }
-
-  updateManager(name: string): void {
-    const data = {
-      manager: name,
-    };
-
-    this.firestoreService
-      .updateDoc(data, this.path, this.isthePlace)
-      .catch((err) => console.log(err));
-
-    this.isModalOpen = false;
-  }
-
   openMenu() {
     this.menucontroler.toggle('first');
   }
@@ -102,6 +64,7 @@ export class ListPlacesPage implements OnInit {
       .then((res) => {
         this.loading.dismiss();
         this.presentToast('Guardado con éxito');
+        this.enableNewPlace = false;
       })
       .catch((err) => {
         this.presentToast('No se pudo guardar :(');
@@ -113,45 +76,20 @@ export class ListPlacesPage implements OnInit {
       this.places = res;
     });
   }
-  async deleteItem(place: Place) {
-    const alert = await this.alertController.create({
-      cssClass: 'normal',
-      header: 'Advertencia',
-      message: 'Seguro desea <strong>eliminar<strong>!',
-      buttons: [
-        {
-          text: 'cancelar',
-          role: 'cancel',
-          cssClass: 'normal',
-          handler: (blah) => {
-            console.log('Confirmar cancelar');
-          },
-        },
-        {
-          text: 'OK',
-          handler: () => {
-            console.log('Confirmar OK');
-            this.firestoreService
-              .deleteDoc(this.path, place.id)
-              .then((res) => {
-                this.loading.dismiss();
-                this.presentToast('Eliminado con éxito');
-              })
-              .catch((err) => {
-                this.presentToast('No se pudo eliminar :(');
-              });
-          },
-        },
-      ],
-    });
-
-    await alert.present();
-    //
-  }
 
   newItem() {
-    this.enableNewRestaurant = true;
-    this.router.navigate(['/create/place', this.path]);
+    this.enableNewPlace = true;
+
+    this.newPlace = {
+      name: '',
+      price: null,
+      description: '',
+      image: '',
+      ubication: null,
+      id: this.firestoreService.getId(),
+      fecha: new Date(),
+      manager: null,
+    };
   }
 
   async presentLoading() {
@@ -180,6 +118,30 @@ export class ListPlacesPage implements OnInit {
         this.newPlace.image = image.target.result as string;
       };
       reader.readAsDataURL(event.target.files[0]);
+    }
+  }
+
+  async addDirection() {
+    const location = this.newPlace.ubication;
+    let positionInput = {
+      lat: 0,
+      lng: 0,
+    };
+    if (location !== null) {
+      positionInput = location;
+    }
+
+    const modalAdd = await this.modalController.create({
+      component: GooglemapsComponent,
+      componentProps: { position: positionInput },
+    });
+    await modalAdd.present();
+
+    const { data } = await modalAdd.onWillDismiss();
+    if (data) {
+      console.log('data -> ', data);
+      this.newPlace.ubication = data.pos;
+      console.log('this.newPlace -> ', this.newPlace);
     }
   }
 }

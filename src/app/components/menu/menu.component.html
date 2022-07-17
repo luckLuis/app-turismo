@@ -1,64 +1,69 @@
 <ion-list>
   <ion-list-header>
-    <strong>
-      Menú
-    </strong>
+    <strong> Menú </strong>
   </ion-list-header>
 
   <ion-menu-toggle>
-    <ion-item  *ngIf="isLogin && userRol==='admin'" detail="true" [routerLink]="['/list/places']" >
-      <ion-label> 
-        Admin
-      </ion-label>
+    <ion-item
+      *ngIf="isLogin && userRol === 'admin'"
+      detail="true"
+      [routerLink]="['/categories/admin']"
+    >
+      <ion-label> Admin </ion-label>
+      <ion-icon slot="start" name="person-outline"></ion-icon>
+    </ion-item>
+  </ion-menu-toggle>
+  <ion-menu-toggle>
+    <ion-item
+      *ngIf="isLogin && userRol === 'admin'"
+      detail="true"
+      [routerLink]="['/list/users']"
+    >
+      <ion-label> Lista de usuarios </ion-label>
+      <ion-icon slot="start" name="people-outline"></ion-icon>
+    </ion-item>
+  </ion-menu-toggle>
+
+  <ion-menu-toggle>
+    <ion-item
+      *ngIf="isLogin && userRol === 'turista'"
+      detail="true"
+      [routerLink]="['/categories/turista']"
+    >
+      <ion-label> Turista </ion-label>
       <ion-icon slot="start" name="person-outline"></ion-icon>
     </ion-item>
   </ion-menu-toggle>
 
   <ion-menu-toggle>
-    <ion-item  *ngIf="isLogin && userRol==='turista'" detail="true" [routerLink]="['/home']" >
-      <ion-label> 
-        Turista
-      </ion-label>
+    <ion-item
+      *ngIf="isLogin && userRol !== 'admin'"
+      detail="true"
+      [routerLink]="['/categories/encargado']"
+    >
+      <ion-label> Encargado </ion-label>
       <ion-icon slot="start" name="person-outline"></ion-icon>
     </ion-item>
   </ion-menu-toggle>
 
   <ion-menu-toggle>
-    <ion-item  *ngIf="isLogin && userRol==='encargado'" detail="true" [routerLink]="['/home']" >
-      <ion-label> 
-        Encargado
-      </ion-label>
-      <ion-icon slot="start" name="person-outline"></ion-icon>
-    </ion-item>
-  </ion-menu-toggle>
-
-
-  <ion-menu-toggle>
-    <ion-item  *ngIf="isLogin == false" [routerLink]="['/login']">
-      <ion-label>
-        Login
-      </ion-label>
+    <ion-item *ngIf="isLogin == false" [routerLink]="['/login']">
+      <ion-label> Login </ion-label>
       <ion-icon slot="start" name="log-in-outline"></ion-icon>
     </ion-item>
   </ion-menu-toggle>
 
   <ion-menu-toggle>
-    <ion-item  *ngIf="isLogin"  (click)="profile()" > 
-      <ion-label>
-        Perfil
-      </ion-label>
+    <ion-item *ngIf="isLogin" (click)="profile()">
+      <ion-label> Perfil </ion-label>
       <ion-icon slot="start" name="person-outline"></ion-icon>
     </ion-item>
   </ion-menu-toggle>
 
   <ion-menu-toggle>
-    <ion-item  *ngIf="isLogin" (click)="logout()">
-      <ion-label>
-        Logout
-      </ion-label>
+    <ion-item *ngIf="isLogin" (click)="logout()">
+      <ion-label> Logout </ion-label>
       <ion-icon slot="start" name="apps"></ion-icon>
     </ion-item>
   </ion-menu-toggle>
-
-
 </ion-list>

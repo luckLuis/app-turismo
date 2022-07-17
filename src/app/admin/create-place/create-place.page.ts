@@ -1,6 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
-import { AlertController, LoadingController, MenuController, ModalController, ToastController } from '@ionic/angular';
+import { ActivatedRoute, Router } from '@angular/router';
+import {
+  AlertController,
+  LoadingController,
+  MenuController,
+  ModalController,
+  ToastController,
+} from '@ionic/angular';
 import { GooglemapsComponent } from 'src/app/googlemaps/googlemaps.component';
 import { Place } from 'src/app/model/places';
 import { FirestorageService } from 'src/app/services/firestorage.service';
@@ -12,30 +18,17 @@ import { FirestoreService } from 'src/app/services/firestore.service';
   styleUrls: ['./create-place.page.scss'],
 })
 export class CreatePlacePage implements OnInit {
-
-
   places: Place[] = [];
 
   newPlace: Place;
 
   enableNewRestaurant = false;
 
-  private path = 'Places/';
+  public path: string;
   newImage = '';
   newFile = '';
 
   loading: any;
-
- /* cliente: Client = {
-    uid: '',
-    name: '',
-    email: '',
-    phoneNumber: '',
-    image: '',
-    description: '',
-    ubication: null,
-  };*/
-
   constructor(
     public menucontroler: MenuController,
     public firestoreService: FirestoreService,
@@ -45,10 +38,13 @@ export class CreatePlacePage implements OnInit {
     public firestorageService: FirestorageService,
     public modalController: ModalController,
     public router: Router,
+    private activatedRoute: ActivatedRoute
   ) {}
 
   ngOnInit() {
+    this.path = this.activatedRoute.snapshot.paramMap.get('route');
     this.newItem();
+    console.log('path', this.path);
   }
 
   openMenu() {
@@ -56,7 +52,7 @@ export class CreatePlacePage implements OnInit {
   }
   async saveItem() {
     this.presentLoading();
-    const path = 'Places';
+    const path = this.path;
     const name = this.newPlace.name;
     const res = await this.firestorageService.uploadImage(
       this.newFile,
@@ -69,7 +65,7 @@ export class CreatePlacePage implements OnInit {
       .then((res) => {
         this.loading.dismiss();
         this.presentToast('Guardado con éxito');
-        this.router.navigate(['/list/places'])
+        this.router.navigate(['/list/places']);
       })
       .catch((err) => {
         this.presentToast('No se pudo guardar :(');
@@ -77,11 +73,9 @@ export class CreatePlacePage implements OnInit {
   }
 
   getItems() {
-    this.firestoreService
-      .getCollection<Place>(this.path)
-      .subscribe((res) => {
-        this.places = res;
-      });
+    this.firestoreService.getCollection<Place>(this.path).subscribe((res) => {
+      this.places = res;
+    });
   }
 
   async deleteItem(place: Place) {
@@ -131,6 +125,7 @@ export class CreatePlacePage implements OnInit {
       ubication: null,
       id: this.firestoreService.getId(),
       fecha: new Date(),
+      manager: null,
     };
   }
 

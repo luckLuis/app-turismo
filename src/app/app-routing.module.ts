@@ -2,62 +2,88 @@ import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 import { AuthGuard } from '@angular/fire/auth-guard';
 
-
 const routes: Routes = [
   {
-    path:'home',
-    loadChildren: () => import('./home/home.module').then(m => m.HomePageModule),
-    
+    path: 'home',
+    loadChildren: () =>
+      import('./home/home.module').then((m) => m.HomePageModule),
   },
   {
     path: '',
-    redirectTo:'login',
-    pathMatch:'full'
+    redirectTo: 'login',
+    pathMatch: 'full',
   },
   {
     path: 'register',
-    loadChildren: () => import('./register/register.module').then( m => m.RegisterPageModule)
+    loadChildren: () =>
+      import('./register/register.module').then((m) => m.RegisterPageModule),
   },
   {
     path: 'login',
-    loadChildren: () => import('./login/login.module').then( m => m.LoginPageModule),
-    
+    loadChildren: () =>
+      import('./login/login.module').then((m) => m.LoginPageModule),
   },
 
   {
     path: 'profile',
-    loadChildren: () => import('./profile/profile.module').then( m => m.ProfilePageModule),
-    
+    loadChildren: () =>
+      import('./profile/profile.module').then((m) => m.ProfilePageModule),
   },
   {
     path: 'profile/edit',
-    loadChildren: () => import('./profile-edit/profile-edit.module').then( m => m.ProfileEditPageModule),
-    
+    loadChildren: () =>
+      import('./profile-edit/profile-edit.module').then(
+        (m) => m.ProfileEditPageModule
+      ),
   },
   {
-    path: 'list/places',
-    loadChildren: () => import('./admin/list-places/list-places.module').then( m => m.ListPlacesPageModule)
+    path: 'list/places/:route',
+    loadChildren: () =>
+      import('./admin/list-places/list-places.module').then(
+        (m) => m.ListPlacesPageModule
+      ),
   },
   {
-    path: 'create/place',
-    loadChildren: () => import('./admin/create-place/create-place.module').then( m => m.CreatePlacePageModule)
+    path: 'create/place/:route',
+    loadChildren: () =>
+      import('./admin/create-place/create-place.module').then(
+        (m) => m.CreatePlacePageModule
+      ),
   },
-
+  {
+    path: 'edit/place/:route',
+    loadChildren: () =>
+      import('./encargado/edit-place/edit-place.module').then(
+        (m) => m.EditPlacePageModule
+      ),
+  },
+  {
+    path: 'categories/:userRol',
+    loadChildren: () =>
+      import('./categories/categories.module').then(
+        (m) => m.CategoriesPageModule
+      ),
+  },
+  {
+    path: 'list/users',
+    loadChildren: () =>
+      import('./admin/list-users/list-users.module').then(
+        (m) => m.ListUsersPageModule
+      ),
+  },
   {
     path: '**',
-    loadChildren: () => import('./page-not-found/page-not-found.module').then( m => m.PageNotFoundPageModule)
+    loadChildren: () =>
+      import('./page-not-found/page-not-found.module').then(
+        (m) => m.PageNotFoundPageModule
+      ),
   },
-
-
-  
-
-
 ];
 
 @NgModule({
   imports: [
-    RouterModule.forRoot(routes, { preloadingStrategy: PreloadAllModules })
+    RouterModule.forRoot(routes, { preloadingStrategy: PreloadAllModules }),
   ],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}
