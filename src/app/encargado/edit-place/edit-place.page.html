@@ -10,19 +10,16 @@
         ></ion-icon>
       </ion-button>
     </ion-buttons>
+    <ion-buttons slot="end">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
   </ion-toolbar>
-</ion-header>
+</ion-header>+
+
 
 <ion-content>
   <div *ngIf="enableNewPlace">
-    <ion-item>
-      <ion-buttons slot="end">
-        <ion-button (click)="enableNewPlace = false">
-          <ion-icon slot="icon-only" name="close-outline"></ion-icon>
-        </ion-button>
-      </ion-buttons>
-    </ion-item>
-    <h3 class="header-product">Datos del Lugar</h3>
+    <h3 class="header-product">Información</h3>
     <ion-item>
       <ion-label position="floating"> Nombre: </ion-label>
       <ion-input [(ngModel)]="newPlace.name" type="text" inputmode="text">

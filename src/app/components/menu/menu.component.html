@@ -13,6 +13,16 @@
       <ion-icon slot="start" name="person-outline"></ion-icon>
     </ion-item>
   </ion-menu-toggle>
+  <ion-menu-toggle>
+    <ion-item
+      *ngIf="isLogin && userRol === 'admin'"
+      detail="true"
+      [routerLink]="['/list/users']"
+    >
+      <ion-label> Lista de usuarios </ion-label>
+      <ion-icon slot="start" name="people-outline"></ion-icon>
+    </ion-item>
+  </ion-menu-toggle>
 
   <ion-menu-toggle>
     <ion-item
