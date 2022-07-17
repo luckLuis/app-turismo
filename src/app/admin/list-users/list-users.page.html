@@ -27,11 +27,11 @@
           <ion-button (click)="eliminar(user.id)">Eliminar</ion-button>
           <ion-button>
             <ion-select
-              (ionChange)="recoverAlertValue($event)"
               interface="action-sheet"
               placeholder="Rol: {{user.userRol}}"
+              [(ngModel)]="rol"
             >
-              <ion-select-option *ngFor="let rol of listRols">
+              <ion-select-option *ngFor="let rol of listRols" [value]="rol">
                 {{rol}}
               </ion-select-option>
             </ion-select>

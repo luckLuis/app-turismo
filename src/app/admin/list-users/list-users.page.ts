@@ -32,26 +32,14 @@ export class ListUsersPage implements OnInit {
       });
     });
   }
-
+  async editar(id) {
+    console.log(this.rol);
+    this.afs.collection('Users').doc(id).update({
+      userRol: this.rol,
+    });
+    console.log(this.rol);
+  } //end toast
   eliminar(id) {
     this.database.delete('Users', id);
-  }
-
-  editar(id) {
-    this.afs
-      .collection('Users')
-      .doc(id)
-      .update({
-        userRol: this.rol,
-        editAt: Date.now(),
-      })
-      .then(() => {
-        console.log('Rol nuevo -> ', this.rol);
-      })
-      .catch((error) => {});
-  }
-
-  recoverAlertValue(event) {
-    return (this.rol = event.detail.value);
   }
 }
