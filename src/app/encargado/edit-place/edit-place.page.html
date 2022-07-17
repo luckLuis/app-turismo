@@ -13,9 +13,8 @@
     <ion-buttons slot="end">
       <ion-back-button></ion-back-button>
     </ion-buttons>
-  </ion-toolbar>
-</ion-header>+
-
+  </ion-toolbar> </ion-header
+>+
 
 <ion-content>
   <div *ngIf="enableNewPlace">
@@ -74,17 +73,19 @@
     </div>
   </div>
 
-  <div *ngIf="!enableNewPlace">
-    <ion-item *ngFor="let place of places">
-      <ion-thumbnail slot="start">
-        <ion-img [src]="place.image"></ion-img>
-      </ion-thumbnail>
-      <ion-label class="normal"> {{ place.name }}</ion-label>
-      <ion-buttons id="open-modal" slot="end">
-        <ion-button (click)="newItem(); newPlace = place">
-          <ion-icon slot="icon-only" name="create-sharp"></ion-icon>
-        </ion-button>
-      </ion-buttons>
-    </ion-item>
+  <div *ngIf="!enableNewPlace ">
+    <ion-list *ngFor="let place of places">
+      <ion-item *ngIf="place.manager === user?.userName">
+        <ion-thumbnail slot="start">
+          <ion-img [src]="place.image"></ion-img>
+        </ion-thumbnail>
+        <ion-label class="normal"> {{ place.name }}</ion-label>
+        <ion-buttons id="open-modal" slot="end">
+          <ion-button (click)="newItem(); newPlace = place">
+            <ion-icon slot="icon-only" name="create-sharp"></ion-icon>
+          </ion-button>
+        </ion-buttons>
+      </ion-item>
+    </ion-list>
   </div>
 </ion-content>

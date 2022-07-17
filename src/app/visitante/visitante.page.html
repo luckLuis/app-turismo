@@ -1,0 +1,63 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Turista</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <!-- List of Text Items -->
+  <ion-list>
+    <ion-item>
+      <ion-label>Pokémon Yellow</ion-label>
+      <ion-button (click)="addFavorite()" fill="clear">
+        <ion-icon
+          *ngIf="!like"
+          slot="icon-only"
+          name="heart-outline"
+        ></ion-icon>
+        <ion-icon
+          *ngIf="like"
+          slot="icon-only"
+          name="heart"
+          color="danger"
+        ></ion-icon>
+      </ion-button>
+    </ion-item>
+    <ion-item>
+      <ion-label>Mega Man X</ion-label>
+      <ion-button (click)="addFavorite()" fill="clear">
+        <ion-icon slot="icon-only" name="heart-outline"></ion-icon>
+      </ion-button>
+    </ion-item>
+    <ion-item>
+      <ion-label>The Legend of Zelda</ion-label>
+      <ion-button (click)="addFavorite()" fill="clear">
+        <ion-icon slot="icon-only" name="heart-outline"></ion-icon>
+      </ion-button>
+    </ion-item>
+    <ion-item>
+      <ion-label>Pac-Man</ion-label>
+      <ion-button (click)="addFavorite()" fill="clear">
+        <ion-icon slot="icon-only" name="heart-outline"></ion-icon>
+      </ion-button>
+    </ion-item>
+    <ion-item>
+      <ion-label>Super Mario World</ion-label>
+      <ion-button (click)="addFavorite()" fill="clear">
+        <ion-icon slot="icon-only" name="heart-outline"></ion-icon>
+      </ion-button>
+    </ion-item>
+  </ion-list>
+</ion-content>
+
+<!-- <div>
+  <ion-item *ngFor="let place of places">
+    <ion-thumbnail slot="start">
+      <ion-img [src]="place.image"></ion-img>
+    </ion-thumbnail>
+    <ion-label class="normal"> {{ place.name }}</ion-label>
+  </ion-item>
+</div> -->
