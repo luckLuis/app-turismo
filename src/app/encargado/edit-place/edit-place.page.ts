@@ -10,6 +10,7 @@ import { GooglemapsComponent } from 'src/app/googlemaps/googlemaps.component';
 import { Place } from '../../model/places';
 import { FirestorageService } from 'src/app/services/firestorage.service';
 import { FirestoreService } from 'src/app/services/firestore.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-edit-place',
@@ -23,11 +24,11 @@ export class EditPlacePage implements OnInit {
 
   enableNewPlace = false;
 
-  private path = 'Places/';
   newImage = '';
   newFile = '';
 
   loading: any;
+  public path: string;
 
   constructor(
     public menucontroler: MenuController,
@@ -36,19 +37,21 @@ export class EditPlacePage implements OnInit {
     public toastController: ToastController,
     public alertController: AlertController,
     public firestorageService: FirestorageService,
-    public modalController: ModalController
+    public modalController: ModalController,
+    private activatedRoute: ActivatedRoute
   ) {}
 
   ngOnInit() {
+    this.path = this.activatedRoute.snapshot.paramMap.get('route');
     this.getItems();
+    console.log('path', this.path);
   }
-
   openMenu() {
     this.menucontroler.toggle('first');
   }
   async saveItem() {
     this.presentLoading();
-    const path = 'Restaurantes';
+    const path = this.path;
     const name = this.newPlace.name;
     const res = await this.firestorageService.uploadImage(
       this.newFile,
