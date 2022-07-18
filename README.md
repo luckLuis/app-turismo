@@ -7,6 +7,10 @@
 - Wendy Palomo
 - Carlos Quel
 
+## Link del sitio web
+
+https://app-turismo-69e7a.web.app/login
+
 ## Respaldo de datos
 
 Base de datos de la aplicacion: https://docs.google.com/spreadsheets/d/1iQDjReTgCaiq6roTmAqBUdID6ZTh0AMVZ_Jy0SiuLfc/edit?usp=sharing
