@@ -9,6 +9,8 @@
 
 ## Respaldo de datos
 
+Base de datos de la aplicacion: https://docs.google.com/spreadsheets/d/1iQDjReTgCaiq6roTmAqBUdID6ZTh0AMVZ_Jy0SiuLfc/edit?usp=sharing
+
 1. Se procede a respaldar la información ingresada en una hoja de cálculo de Google mediante el plugin Data Browser que provee Googlesheets.
 [![Captura-de-pantalla-2022-07-17-184717.png](https://i.postimg.cc/yN0zgW55/Captura-de-pantalla-2022-07-17-184717.png)](https://postimg.cc/8FkYxkTB)
 
