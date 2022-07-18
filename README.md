@@ -86,3 +86,30 @@ Para poder correr el proyecto en el dispositivo tienen quen tener instalado el A
 
 si quieren leer las instrucciónes que uds mandan a consola correr el siguiente comando: 
 * adb logcat Cordova DroidGap:D CordovaLog:D *:S
+
+#Funcionalidad
+
+{{Introduccion}}
+
+![image](https://user-images.githubusercontent.com/58041699/179435926-b771337c-e117-4ba8-830b-8b4ef2d61d13.png)
+
+Roles
+
+-Admin
+{informacion}
+-Encargado 
+informacion
+-Turista
+informacion
+
+![image](https://user-images.githubusercontent.com/58041699/179436047-b38c9b35-a462-4a7d-82b2-87cb2bc773c4.png)
+
+
+#Generar la aplicacion en entornos de celulares
+
+![image](https://user-images.githubusercontent.com/58041699/179435746-851d97a7-0906-4885-999d-939ca93c4920.png)
+
+![image](https://user-images.githubusercontent.com/58041699/179435779-1b9f633f-b4c0-4252-8ad9-7e0752f9f8a8.png)
+
+# Probando la app en los dispositivos moviles
+
