@@ -150,7 +150,7 @@ Un usuario turista es un usuario fundamental que puede consultar en esta aplicac
 
 # Probando la app en los dispositivos moviles
 
-# Puebas en dispositivo 
+# Puebas en dispositivo Samsung Galaxy J6
 
 Fotos como administrador:
 
