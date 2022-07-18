@@ -87,16 +87,27 @@ Para poder correr el proyecto en el dispositivo tienen quen tener instalado el A
 si quieren leer las instrucciónes que uds mandan a consola correr el siguiente comando: 
 * adb logcat Cordova DroidGap:D CordovaLog:D *:S
 
-#Funcionalidad
+# Funcionalidad
 
-{{Introduccion}}
+Una empresa desea implementar una aplicación para fomentar el turismo en Quito, la empresa al levantar los requerimientos se percata que necesita cumplir los siguientes requerimientos:
+
+- La aplicación debe ser realizada en ionic para poder generar una versión de iOS, android y web.
+- La aplicación debe registrar sitios turísiticos, de comida, parques, iglesias, restaurantes, etc.
+basada en geolocalización.
+- La aplicación debe permitir el ingreso de detalles y características de dichos sitios.
+- La aplicación debe permitir el acceso de 3 perfiles, uno de usuario turista, un usuario propietario
+o encargado del sitio turístico y un usuario administrador general.
 
 ![image](https://user-images.githubusercontent.com/58041699/179435926-b771337c-e117-4ba8-830b-8b4ef2d61d13.png)
 
-Roles
+# Roles
 
--Admin
-{informacion}
+- Admin
+
+La aplicacion maneja 3 tipos de usuarios, los cuales desenpeñan ciertas acciones para administrar la app. El usario con rol Administrador es el usuario base de esta aplicacion puesto que este usuario maneja la creacion de los Sitios turisticos en base a las categorias y por cada sitio creado por el administrador, puede asignar algun usuario encargado para gestionar la informacion de ese sitio.
+
+
+
 -Encargado 
 informacion
 -Turista
