@@ -102,8 +102,9 @@ o encargado del sitio turístico y un usuario administrador general.
 
 * Almacenamiento:
 
-![image](https://user-images.githubusercontent.com/58041699/179436858-c34d506c-683b-444d-bec4-46fbb5251b02.png)
+Para la elaboracion de este proyecto se contaron con la colaboracion de recursos de terceros los cuales nos ofrecieron servicios de almacenamiento y host para la produccion de la aplicacion movil. Firebase es el elemento base de nuestro proyecto y en el cual usamos su servicio de almacenamiento para gestionar los registros que la aplicacion genera en tiempo real.
 
+![image](https://user-images.githubusercontent.com/58041699/179436858-c34d506c-683b-444d-bec4-46fbb5251b02.png)
 
 
 # Roles
