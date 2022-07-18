@@ -106,6 +106,7 @@ Para la elaboracion de este proyecto se contaron con la colaboracion de recursos
 
 ![image](https://user-images.githubusercontent.com/58041699/179436858-c34d506c-683b-444d-bec4-46fbb5251b02.png)
 
+![image](https://user-images.githubusercontent.com/58041699/179436047-b38c9b35-a462-4a7d-82b2-87cb2bc773c4.png)
 
 # Roles
 
@@ -113,15 +114,33 @@ Para la elaboracion de este proyecto se contaron con la colaboracion de recursos
 
 La aplicacion maneja 3 tipos de usuarios, los cuales desenpeñan ciertas acciones para administrar la app. El usario con rol Administrador es el usuario base de esta aplicacion puesto que este usuario maneja la creacion de los Sitios turisticos en base a las categorias y por cada sitio creado por el administrador, puede asignar algun usuario encargado para gestionar la informacion de ese sitio.
 
-![image](https://user-images.githubusercontent.com/58041699/179436047-b38c9b35-a462-4a7d-82b2-87cb2bc773c4.png)
+![image](https://user-images.githubusercontent.com/58041699/179439042-185d8864-0c30-4e67-9731-575a25254e89.png)
+
+El usuario administrador contara con tres opciones para tratar la informacion de su perfil, el de otros usuarios y de los lugares que el genere.
+![image](https://user-images.githubusercontent.com/58041699/179439079-3b878766-c6b4-4cba-b478-87be8c8cafb6.png)
+
+El administrador puede generar los sitios y designar a un usuario encargado a gestionar la informacion de este sitio web.
+![image](https://user-images.githubusercontent.com/58041699/179439172-b7b168bc-7479-4f14-8529-17e9049f5d30.png)
+
+Otra funcionalidad importante que el usuario administrador puede hacer es gestionar a los usuarios y donde la tarea que destaca de esta accion es el de poder cambiar el rol de cada usuario, de esta forma un administrador puede controlar el acceso a ciertos usuarios.
+![image](https://user-images.githubusercontent.com/58041699/179439351-783d2a5e-344d-42ca-959b-9a3a03f887b4.png)
+
 
 
 - Encargado 
-informacion
+El usuario encargadi es un usuario que gestiona la informacion de los lugares que se le ha designado administrar. Por ello, solamente el puede cambiar los datos importante de un post. Este usuario puede ser un encargado del lugar o un propietario.
+
+![image](https://user-images.githubusercontent.com/58041699/179439665-6ca6b078-dc55-4ec3-b741-1f14b392d2f0.png)
+
+
 -Turista
-informacion
+Un usuario turista es un usuario fundamental que puede consultar en esta aplicacion sobre los lugares que esten registrados y  a su vez poder añadir a su lista de favoritos.
 
+![image](https://user-images.githubusercontent.com/58041699/179440006-dc706b0a-5ca7-47f7-8e6c-777e37fc2d4e.png)
 
+![image](https://user-images.githubusercontent.com/58041699/179440051-cd3a19ad-df6f-480f-9e2f-2e1f3c03428d.png)
+
+![image](https://user-images.githubusercontent.com/58041699/179440076-8bb9bbc2-8b62-4b1e-9336-f506e3c1eab8.png)
 
 #Generar la aplicacion en entornos de celulares
 
