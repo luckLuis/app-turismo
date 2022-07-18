@@ -3,7 +3,7 @@
 # Integrantes
 - Roberth Pincha
 - Luis Jacome
-- Jose Luis Colcha
+- José Luis Colcha
 - Wendy Palomo
 - Carlos Quel
 
