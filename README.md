@@ -1,5 +1,11 @@
 # app-turismo
 
+#Integrantes
+-Roberth Pincha
+-Luis Jacome
+-Jose Luis Colcha
+-Wendy Palomo
+-Carlos Quel
 
 ## Respaldo de datos
 
