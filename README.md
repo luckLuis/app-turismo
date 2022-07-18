@@ -1,4 +1,4 @@
-# app-turismo
+# Aplicación de turismo realizada con Ionic-Angular y Firebase
 
 # Integrantes
 - Roberth Pincha
