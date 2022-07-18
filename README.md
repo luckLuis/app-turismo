@@ -150,7 +150,7 @@ Un usuario turista es un usuario fundamental que puede consultar en esta aplicac
 
 # Probando la app en los dispositivos moviles
 
-# Puebas en dispositivo Samsung Galaxy J6
+# Pruebas en dispositivo Samsung Galaxy J6
 
 Fotos como administrador:
 
@@ -163,3 +163,18 @@ Fotos como administrador:
 ![admin](https://user-images.githubusercontent.com/58127103/179441397-89f79151-e63e-4381-849b-7f6f06b66d38.png)
 
 ![admin2](https://user-images.githubusercontent.com/58127103/179441419-5f8b6113-045b-49f7-a317-343fc0e5f814.png)
+
+# Pruebas en dispositivo Samsung Galaxy J3
+
+Fotos como turista:
+
+![WhatsApp Image 2022-07-17 at 10 23 33 PM](https://user-images.githubusercontent.com/58041699/179441793-0cdfaccf-0e5d-4603-a8f2-8e49a43b827d.jpeg)
+
+![WhatsApp Image 2022-07-17 at 10 24 24 PM](https://user-images.githubusercontent.com/58041699/179441813-8fc9ced1-2003-4f63-a828-d937d3e62743.jpeg)
+
+![image](https://user-images.githubusercontent.com/58041699/179441831-ee3f85a9-617f-4ba8-9784-a9cebd3b6924.png)
+
+![image](https://user-images.githubusercontent.com/58041699/179441841-845624d5-6f6f-47ee-ba72-ab52b6ddf498.png)
+
+![image](https://user-images.githubusercontent.com/58041699/179441852-7cc0f407-e9b6-4bfc-aaac-95ec915c1cb0.png)
+
