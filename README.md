@@ -11,38 +11,9 @@
 
 https://app-turismo-69e7a.web.app/login
 
-## Respaldo de datos
+## Link del video funcional
 
-Base de datos de la aplicacion: https://docs.google.com/spreadsheets/d/1iQDjReTgCaiq6roTmAqBUdID6ZTh0AMVZ_Jy0SiuLfc/edit?usp=sharing
-
-1. Se procede a respaldar la información ingresada en una hoja de cálculo de Google mediante el plugin Data Browser que provee Googlesheets.
-[![Captura-de-pantalla-2022-07-17-184717.png](https://i.postimg.cc/yN0zgW55/Captura-de-pantalla-2022-07-17-184717.png)](https://postimg.cc/8FkYxkTB)
-
-2. Luego se inicia la extensión.
-
-[![Captura-de-pantalla-2022-07-17-185611.png](https://i.postimg.cc/BQy62LYQ/Captura-de-pantalla-2022-07-17-185611.png)](https://postimg.cc/WhGTv3cQ)
-
-3. Paso siguiente se genera una conección en firestore con nuestras credenciales.
-
-[![Captura-de-pantalla-2022-07-17-191932.png](https://i.postimg.cc/N0024q8Q/Captura-de-pantalla-2022-07-17-191932.png)](https://postimg.cc/3kPw8qbq)
-
-4. Paso siguiente se un query colocando la id del proyecto realizado en firebase y seleccionando los campos y documentos deseados.
-
-[![Captura-de-pantalla-2022-07-17-192452.png](https://i.postimg.cc/qMvvCXp3/Captura-de-pantalla-2022-07-17-192452.png)](https://postimg.cc/qgWTPKhJ)
-
-5. Se verifica los usuarios creados.
-
-[![Captura-de-pantalla-2022-07-17-192904.png](https://i.postimg.cc/WbdtH6xP/Captura-de-pantalla-2022-07-17-192904.png)](https://postimg.cc/qzdktnkm)
-
-### Documento de Bibliotecas
-De igual forma se realiza con cada una de las categorías como las Bibliotecas, hoteles,etc.
-
-[![Captura-de-pantalla-2022-07-17-193634.png](https://i.postimg.cc/268CBhW6/Captura-de-pantalla-2022-07-17-193634.png)](https://postimg.cc/KKV66KJS)
-
-### Documento de Hoteles
-
-[![Captura-de-pantalla-2022-07-17-193938.png](https://i.postimg.cc/6Q1bn69d/Captura-de-pantalla-2022-07-17-193938.png)](https://postimg.cc/GBGj1CT2)
-
+https://youtu.be/31M0vj59Cho
 
 # Manual de instalación de Ionic
 
@@ -178,3 +149,34 @@ Fotos como turista:
 
 ![image](https://user-images.githubusercontent.com/58041699/179441852-7cc0f407-e9b6-4bfc-aaac-95ec915c1cb0.png)
 
+## Respaldo de datos
+
+Base de datos de la aplicacion: https://docs.google.com/spreadsheets/d/1iQDjReTgCaiq6roTmAqBUdID6ZTh0AMVZ_Jy0SiuLfc/edit?usp=sharing
+
+1. Se procede a respaldar la información ingresada en una hoja de cálculo de Google mediante el plugin Data Browser que provee Googlesheets.
+[![Captura-de-pantalla-2022-07-17-184717.png](https://i.postimg.cc/yN0zgW55/Captura-de-pantalla-2022-07-17-184717.png)](https://postimg.cc/8FkYxkTB)
+
+2. Luego se inicia la extensión.
+
+[![Captura-de-pantalla-2022-07-17-185611.png](https://i.postimg.cc/BQy62LYQ/Captura-de-pantalla-2022-07-17-185611.png)](https://postimg.cc/WhGTv3cQ)
+
+3. Paso siguiente se genera una conección en firestore con nuestras credenciales.
+
+[![Captura-de-pantalla-2022-07-17-191932.png](https://i.postimg.cc/N0024q8Q/Captura-de-pantalla-2022-07-17-191932.png)](https://postimg.cc/3kPw8qbq)
+
+4. Paso siguiente se un query colocando la id del proyecto realizado en firebase y seleccionando los campos y documentos deseados.
+
+[![Captura-de-pantalla-2022-07-17-192452.png](https://i.postimg.cc/qMvvCXp3/Captura-de-pantalla-2022-07-17-192452.png)](https://postimg.cc/qgWTPKhJ)
+
+5. Se verifica los usuarios creados.
+
+[![Captura-de-pantalla-2022-07-17-192904.png](https://i.postimg.cc/WbdtH6xP/Captura-de-pantalla-2022-07-17-192904.png)](https://postimg.cc/qzdktnkm)
+
+### Documento de Bibliotecas
+De igual forma se realiza con cada una de las categorías como las Bibliotecas, hoteles,etc.
+
+[![Captura-de-pantalla-2022-07-17-193634.png](https://i.postimg.cc/268CBhW6/Captura-de-pantalla-2022-07-17-193634.png)](https://postimg.cc/KKV66KJS)
+
+### Documento de Hoteles
+
+[![Captura-de-pantalla-2022-07-17-193938.png](https://i.postimg.cc/6Q1bn69d/Captura-de-pantalla-2022-07-17-193938.png)](https://postimg.cc/GBGj1CT2)
