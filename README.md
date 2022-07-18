@@ -150,3 +150,16 @@ Un usuario turista es un usuario fundamental que puede consultar en esta aplicac
 
 # Probando la app en los dispositivos moviles
 
+# Puebas en dispositivo 
+
+Fotos como administrador:
+
+![admin3](https://user-images.githubusercontent.com/58127103/179441449-d031bcaa-eb90-4677-90f9-56bc26a66dec.png)
+
+![admin4](https://user-images.githubusercontent.com/58127103/179441523-ccef84db-a960-46ba-9f3d-0ca5146fc69b.png)
+
+![admin5](https://user-images.githubusercontent.com/58127103/179441540-c1ef560e-775d-493b-8ce3-bcd3bae2bf28.png)
+
+![admin](https://user-images.githubusercontent.com/58127103/179441397-89f79151-e63e-4381-849b-7f6f06b66d38.png)
+
+![admin2](https://user-images.githubusercontent.com/58127103/179441419-5f8b6113-045b-49f7-a317-343fc0e5f814.png)
