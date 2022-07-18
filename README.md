@@ -100,6 +100,12 @@ o encargado del sitio turístico y un usuario administrador general.
 
 ![image](https://user-images.githubusercontent.com/58041699/179435926-b771337c-e117-4ba8-830b-8b4ef2d61d13.png)
 
+* Almacenamiento:
+
+![image](https://user-images.githubusercontent.com/58041699/179436858-c34d506c-683b-444d-bec4-46fbb5251b02.png)
+
+
+
 # Roles
 
 - Admin
