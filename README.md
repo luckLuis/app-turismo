@@ -113,14 +113,14 @@ Para la elaboracion de este proyecto se contaron con la colaboracion de recursos
 
 La aplicacion maneja 3 tipos de usuarios, los cuales desenpeñan ciertas acciones para administrar la app. El usario con rol Administrador es el usuario base de esta aplicacion puesto que este usuario maneja la creacion de los Sitios turisticos en base a las categorias y por cada sitio creado por el administrador, puede asignar algun usuario encargado para gestionar la informacion de ese sitio.
 
+![image](https://user-images.githubusercontent.com/58041699/179436047-b38c9b35-a462-4a7d-82b2-87cb2bc773c4.png)
 
 
--Encargado 
+- Encargado 
 informacion
 -Turista
 informacion
 
-![image](https://user-images.githubusercontent.com/58041699/179436047-b38c9b35-a462-4a7d-82b2-87cb2bc773c4.png)
 
 
 #Generar la aplicacion en entornos de celulares
