@@ -29,4 +29,4 @@ De igual forma se realiza con cada una de las categorías como las Bibliotecas, 
 
 ### Documento de Hoteles
 
-[![Captura-de-pantalla-2022-07-17-192452.png](https://i.postimg.cc/qMvvCXp3/Captura-de-pantalla-2022-07-17-192452.png)](https://postimg.cc/qgWTPKhJ)
+[![Captura-de-pantalla-2022-07-17-193938.png](https://i.postimg.cc/6Q1bn69d/Captura-de-pantalla-2022-07-17-193938.png)](https://postimg.cc/GBGj1CT2)
